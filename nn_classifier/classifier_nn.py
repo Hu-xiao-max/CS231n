@@ -39,7 +39,7 @@ class NearestNeighbor(object):
       # find the nearest training image to the i'th test image
       # using the L1 distance (sum of absolute value differences)
       distances = np.sum(np.abs(self.Xtr - X[i,:]), axis = 1)
-      #对每行求所有元素求差并累加，所以distances的大小为图片数量(即行数）*图片数量
+      #把train中的50000张图片依次取出跟test中的第i个进行比较算出l1距离
       min_index = np.argmin(distances) # get the index with smallest distance
       #找到distances中最小元素的位置
       Ypred[i] = self.ytr[min_index]
